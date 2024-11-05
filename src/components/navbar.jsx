@@ -74,7 +74,7 @@ export const Navbar = () => {
             />
           </svg>
 
-          <button className=" text-sm xl:text-lg font-semibold">MENU</button>
+          <button className=" text-sm xl:text-lg font-semibold">CONTACT</button>
         </div>
       </header>
     </>

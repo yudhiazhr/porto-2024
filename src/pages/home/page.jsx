@@ -85,9 +85,10 @@ export const Hero = () => {
           ".text-reveal-about-desc",
           {
             opacity: 0,
-            duration: 2,
+            duration: 1.5,
+            stagger: 0.8,
           },
-          1.8
+          1
         );
       /* Dekstop-end*/
 
@@ -217,7 +218,11 @@ export const Hero = () => {
             stagger: 0.5,
           },
           0.4
-        );
+        )
+        .from(".button-view-project-siapa", {
+          opacity: 0,
+          duration: 1,
+        });
 
       const triggerProjectTwo = gsap.timeline({
         scrollTrigger: {
@@ -232,7 +237,7 @@ export const Hero = () => {
           ".img-ops",
           {
             height: 0,
-            y: 302,
+            y: 0,
             duration: 2,
           },
           0
@@ -246,6 +251,10 @@ export const Hero = () => {
           },
           0.4
         )
+        .from(".button-view-project-ops", {
+          opacity: 0,
+          duration: 1,
+        })
         .from(
           ".border-line-ops",
           {
@@ -276,7 +285,7 @@ export const Hero = () => {
           ".img-word-cloud",
           {
             height: 0,
-            y: 302,
+            y: 0,
             duration: 2,
           },
           0
@@ -290,6 +299,10 @@ export const Hero = () => {
           },
           0.4
         )
+        .from(".button-view-project-word-cloud", {
+          opacity: 0,
+          duration: 1,
+        })
         .from(
           ".border-line-word-cloud",
           {
@@ -320,7 +333,7 @@ export const Hero = () => {
           ".img-kelah-keluh",
           {
             height: 0,
-            y: 302,
+            y: 0,
             duration: 2,
           },
           0
@@ -334,6 +347,10 @@ export const Hero = () => {
           },
           0.4
         )
+        .from(".button-view-project-kelah-keluh", {
+          opacity: 0,
+          duration: 1,
+        })
         .from(
           ".border-line-kelah-keluh",
           {
@@ -433,77 +450,103 @@ export const Hero = () => {
       {/* ABOUT SECTION */}
       <AboutMobile />
       <section className=" min-h-dvh hidden md:flex flex-col md:px-3 lg:px-10 overflow-hidden">
-        <div className="md:flex md:flex-col lg:grid lg:grid-cols-2">
+        <div className="md:flex md:flex-col xl:grid xl:grid-cols-2">
           <div className="relative flex ">
             <img
               src={HeroImg}
-              className=" about-section lg:w-[730px] lg:h-[800px] md:w-full md:h-[430px] object-cover rounded-xl"
+              className=" about-section lg:w-full xl:w-[90%] lg:h-[800px] md:w-full md:h-[430px] object-cover rounded-xl"
               alt=""
             />
-            <div className="absolute bottom-0 img-reveal-about bg-[#F5F7F8] lg:w-[730px] lg:h-[1000px] md:w-full md:h-[430px]"></div>
+            <div className="absolute bottom-0 img-reveal-about bg-[#F5F7F8] lg:w-full xl:w-[90%] lg:h-[1000px] md:w-full md:h-[430px]"></div>
           </div>
           <div className=" grid grid-rows-2 pt-8">
             <div
               id="wrapper-text-reveal-about"
-              className="lg:flex flex-col md:hidden"
+              className="xl:flex flex-col md:hidden"
             >
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] xl:text-[5vw] leading-[100%] uppercase">
                   I craft beautiful
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] xl:text-[5vw] leading-[100%] uppercase">
                   experiences &
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] xl:text-[5vw] leading-[100%] uppercase">
                   attractive
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] xl:text-[5vw] leading-[100%] uppercase">
                   modern website
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[64px] lg:text-[96px] xl:text-[5vw] leading-[100%] uppercase">
                   with GSAP
                 </h1>
               </div>
             </div>
 
-            <div className=" flex-col lg:hidden md:flex sm:hidden">
+            <div className=" flex-col xl:hidden md:flex sm:hidden">
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[48px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[48px] lg:text-[72px] leading-[100%] uppercase">
                   I craft beautiful
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[48px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[48px] lg:text-[72px] leading-[100%] uppercase">
                   experiences & attractive
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[48px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[48px] lg:text-[72px] leading-[100%] uppercase">
                   modern website using
                 </h1>
               </div>
               <div className="overflow-hidden">
-                <h1 className="text-reveal-about md:text-[48px] leading-[100%] uppercase">
+                <h1 className="text-reveal-about md:text-[48px] lg:text-[72px] leading-[100%] uppercase">
                   GSAP
                 </h1>
               </div>
             </div>
 
-            <div className="flex md:justify-start lg:justify-center md:pt-4 lg:pt-24 ">
-              <p className="text-reveal-about-desc md:text-lg lg:text-base md:w-full lg:w-[50%]">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Reiciendis illo earum culpa iure animi repellendus sequi
-                perspiciatis, labore id ipsum voluptatibus commodi obcaecati
-                alias perferendis rerum nostrum porro, odio consequuntur.
+            <div className="flex flex-col md:justify-start xl:items-center xl:justify-start md:gap-6 md:pt-4 lg:pt-8 xl:pt-3 2xl:pt-16">
+              <p className="text-reveal-about-desc md:text-lg lg:text-xl xl:text-base md:w-full xl:w-[70%] 2xl:w-[50%] ">
+                I believe web design can be more diverse and inspiring, with a
+                mission to reveal the possibilities of an attractive modern
+                website. Through every project, I strive to explore new ways of
+                expression, combining creativity with functionality in fresh and
+                unique ways. Driven by experiments and thoughtful innovation, I
+                aim to redefine what an attractive modern website can achieve.
               </p>
+              <div className="flex justify-start w-full xl:w-[70%] 2xl:w-[50%]">
+                <button
+                  className="text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] group text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
+                  onClick={() => {
+                    window.open("/path/to/cv.pdf", "_blank");
+                  }}
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    strokeWidth="1.5"
+                    stroke="currentColor"
+                    className="size-6 group-hover:text-white"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                    />
+                  </svg>
+                  Download CV
+                </button>
+              </div>
             </div>
           </div>
         </div>
@@ -531,7 +574,7 @@ export const Hero = () => {
         </div>
         <div className="flex gap-8 w-[388.6vw] inner-container pb-24">
           {/* SIAPA VOTE */}
-          <div className="siapa-vote flex flex-col  w-[95.4dvw] ">
+          <div className="siapa-vote flex flex-col  xl:w-[95.4dvw] md:w-[94dvw] ">
             <div className=" border-line border-t-2 border-black py-3">
               <div className="info-project flex justify-between text-md ">
                 <h1 className=" text-base">01</h1>
@@ -563,23 +606,75 @@ export const Hero = () => {
                   </div>
                 </div>
 
-                <div className="flex xl:hidden gap-4">
-                  <div className=" border-[1px] h-full border-black rounded-full flex justify-center items-center px-6 py-2">
+                <div className="button-view-project-siapa flex xl:hidden gap-2">
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                    <svg
+                      className="group-hover:text-white transition-all duration-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.8"
+                        d="M18 14v4.8a1.2 1.2 0 0 1-1.2 1.2H5.2A1.2 1.2 0 0 1 4 18.8V7.2A1.2 1.2 0 0 1 5.2 6h4.6m4.4-2H20v5.8m-7.9 2L20 4.2"
+                      ></path>
+                    </svg>
                     VIEW
                   </div>
-                  <div className=" border-[1px] h-full border-black rounded-full flex justify-center items-center px-6 py-2">
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      className="group-hover:text-white transition-all duration-300"
+                    >
+                      <path
+                        d="M10 20.5675C6.57143 21.7248 3.71429 20.5675 2 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 22V18.7579C10 18.1596 10.1839 17.6396 10.4804 17.1699C10.6838 16.8476 10.5445 16.3904 10.1771 16.2894C7.13394 15.4528 5 14.1077 5 9.64606C5 8.48611 5.38005 7.39556 6.04811 6.4464C6.21437 6.21018 6.29749 6.09208 6.31748 5.9851C6.33746 5.87813 6.30272 5.73852 6.23322 5.45932C5.95038 4.32292 5.96871 3.11619 6.39322 2.02823C6.39322 2.02823 7.27042 1.74242 9.26698 2.98969C9.72282 3.27447 9.95075 3.41686 10.1515 3.44871C10.3522 3.48056 10.6206 3.41384 11.1573 3.28041C11.8913 3.09795 12.6476 3 13.5 3C14.3524 3 15.1087 3.09795 15.8427 3.28041C16.3794 3.41384 16.6478 3.48056 16.8485 3.44871C17.0493 3.41686 17.2772 3.27447 17.733 2.98969C19.7296 1.74242 20.6068 2.02823 20.6068 2.02823C21.0313 3.11619 21.0496 4.32292 20.7668 5.45932C20.6973 5.73852 20.6625 5.87813 20.6825 5.9851C20.7025 6.09207 20.7856 6.21019 20.9519 6.4464C21.6199 7.39556 22 8.48611 22 9.64606C22 14.1077 19.8661 15.4528 16.8229 16.2894C16.4555 16.3904 16.3162 16.8476 16.5196 17.1699C16.8161 17.6396 17 18.1596 17 18.7579V22"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
                     GITHUB
                   </div>
                 </div>
               </div>
               <div className=" flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full  md:order-1 xl:order-2">
-                <img src={SiapaVote} className="w-full h-full object-cover rounded-2xl" alt="" />
-                <div className="absolute flex justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
+                <img
+                  src={SiapaVote}
+                  className="w-full h-full object-cover rounded-2xl"
+                  alt=""
+                />
+                <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
                     href=""
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
+                  </a>
+                  <a
+                    href=""
+                    className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
+                  >
+                    GITHUB
                   </a>
                 </div>
                 <div className="img-project-1 absolute bottom-0 flex bg-[#F5F7F8] w-full h-full"></div>
@@ -588,7 +683,7 @@ export const Hero = () => {
           </div>
 
           {/* OPS */}
-          <div className="ops flex flex-col  w-[95.4dvw] ">
+          <div className="ops flex flex-col  xl:w-[95.4dvw] md:w-[94dvw] ">
             <div className="border-line-ops border-t-2 border-black py-3">
               <div className="info-project-ops flex justify-between text-md ">
                 <h1>02</h1>
@@ -599,42 +694,105 @@ export const Hero = () => {
                 <div className="flex flex-col text-md">
                   <h1>NEXT JS</h1>
                   <h1>TAILWIND CSS</h1>
+                  <h1>FIREBASE</h1>
                   <h1>CHART JS</h1>
-                  <h1>GSAP</h1>
                 </div>
               </div>
             </div>
 
-            <div className="wrapper-ops flex justify-between gap-8 w-full mt-3">
-              <div className="flex items-center justify-center relative group w-[50%]">
-                <img src={OPS} className="w-full rounded-2xl" alt="" />
-                <div className="absolute flex justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
+            <div className="wrapper-ops flex md:flex-col xl:flex-row xl:justify-between md:items-center xl:items-start gap-8 w-full xl:mt-3 md:mt-0">
+              <div className=" flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full">
+                <img
+                  src={OPS}
+                  className="w-full h-full object-cover rounded-2xl"
+                  alt=""
+                />
+                <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
                     href=""
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
+                  <a
+                    href=""
+                    className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
+                  >
+                    GITHUB
+                  </a>
                 </div>
-                <div className="img-ops absolute flex bg-[#F5F7F8] w-full h-full"></div>
+                <div className="img-ops absolute bottom-0 flex bg-[#F5F7F8] w-full h-full"></div>
               </div>
-              <div className="flex flex-col w-[40%] justify-start ">
-                <div className="overflow-hidden">
-                  <h1 className="title-ops text-[6.5vw] leading-[100%]">
-                    PLACEMENT
-                  </h1>
+              <div className="flex xl:flex-col xl:w-[40%] md:flex-row md:w-full md:gap-5 md:justify-between md:items-center xl:items-start ">
+                <div className="flex md:flex-row xl:flex-col gap-4">
+                  <div className="overflow-hidden">
+                    <h1 className="title-ops md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%]">
+                      PLACEMENT
+                    </h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <h1 className="title-ops md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%] text-end">
+                      SYSTEM
+                    </h1>
+                  </div>
                 </div>
-                <div className="overflow-hidden">
-                  <h1 className="title-ops text-[6.5vw] leading-[100%] text-end">
-                    SYSTEM
-                  </h1>
+
+                <div className="button-view-project-ops flex xl:hidden gap-2">
+                  <div className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                    <svg
+                      className="group-hover:text-white transition-all duration-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.8"
+                        d="M18 14v4.8a1.2 1.2 0 0 1-1.2 1.2H5.2A1.2 1.2 0 0 1 4 18.8V7.2A1.2 1.2 0 0 1 5.2 6h4.6m4.4-2H20v5.8m-7.9 2L20 4.2"
+                      ></path>
+                    </svg>
+                    VIEW
+                  </div>
+                  <div className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      className="group-hover:text-white transition-all duration-300"
+                    >
+                      <path
+                        d="M10 20.5675C6.57143 21.7248 3.71429 20.5675 2 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 22V18.7579C10 18.1596 10.1839 17.6396 10.4804 17.1699C10.6838 16.8476 10.5445 16.3904 10.1771 16.2894C7.13394 15.4528 5 14.1077 5 9.64606C5 8.48611 5.38005 7.39556 6.04811 6.4464C6.21437 6.21018 6.29749 6.09208 6.31748 5.9851C6.33746 5.87813 6.30272 5.73852 6.23322 5.45932C5.95038 4.32292 5.96871 3.11619 6.39322 2.02823C6.39322 2.02823 7.27042 1.74242 9.26698 2.98969C9.72282 3.27447 9.95075 3.41686 10.1515 3.44871C10.3522 3.48056 10.6206 3.41384 11.1573 3.28041C11.8913 3.09795 12.6476 3 13.5 3C14.3524 3 15.1087 3.09795 15.8427 3.28041C16.3794 3.41384 16.6478 3.48056 16.8485 3.44871C17.0493 3.41686 17.2772 3.27447 17.733 2.98969C19.7296 1.74242 20.6068 2.02823 20.6068 2.02823C21.0313 3.11619 21.0496 4.32292 20.7668 5.45932C20.6973 5.73852 20.6625 5.87813 20.6825 5.9851C20.7025 6.09207 20.7856 6.21019 20.9519 6.4464C21.6199 7.39556 22 8.48611 22 9.64606C22 14.1077 19.8661 15.4528 16.8229 16.2894C16.4555 16.3904 16.3162 16.8476 16.5196 17.1699C16.8161 17.6396 17 18.1596 17 18.7579V22"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    GITHUB
+                  </div>
                 </div>
               </div>
             </div>
           </div>
 
           {/* WORD CLOUD */}
-          <div className="word-cloud flex flex-col  w-[95.4dvw] ">
+          <div className="word-cloud flex flex-col  xl:w-[95.4dvw] md:w-[94dvw] ">
             <div className="border-line-word-cloud border-t-2 border-black py-3">
               <div className="info-project-word-cloud flex justify-between text-md ">
                 <h1>03</h1>
@@ -651,36 +809,99 @@ export const Hero = () => {
               </div>
             </div>
 
-            <div className="wrapper-word-cloud flex justify-between  gap-8 w-full mt-3">
-              <div className="flex flex-col w-[40%] justify-end ">
-                <div className="overflow-hidden">
-                  <h1 className="title-word-cloud text-[6.5vw] leading-[100%]">
-                    WORD
-                  </h1>
+            <div className="wrapper-word-cloud flex md:flex-col xl:flex-row xl:justify-between md:items-center xl:items-end  gap-8 w-full xl:mt-3 md:mt-0">
+              <div className="flex xl:flex-col xl:w-[40%] md:flex-row md:w-full md:gap-5 md:order-2 xl:order-1  md:justify-between md:items-center xl:items-stretch">
+                <div className="flex md:flex-row xl:flex-col gap-4 ">
+                  <div className="overflow-hidden">
+                    <h1 className="title-word-cloud md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%]">
+                      WORD
+                    </h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <h1 className="title-word-cloud md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%] text-end">
+                      CLOUD WEB
+                    </h1>
+                  </div>
                 </div>
-                <div className="overflow-hidden">
-                  <h1 className="title-word-cloud text-[6.5vw] leading-[100%] text-end">
-                    CLOUD WEB
-                  </h1>
+
+                <div className="button-view-project-word-cloud flex xl:hidden gap-2">
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                    <svg
+                      className="group-hover:text-white transition-all duration-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.8"
+                        d="M18 14v4.8a1.2 1.2 0 0 1-1.2 1.2H5.2A1.2 1.2 0 0 1 4 18.8V7.2A1.2 1.2 0 0 1 5.2 6h4.6m4.4-2H20v5.8m-7.9 2L20 4.2"
+                      ></path>
+                    </svg>
+                    VIEW
+                  </div>
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      className="group-hover:text-white transition-all duration-300"
+                    >
+                      <path
+                        d="M10 20.5675C6.57143 21.7248 3.71429 20.5675 2 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 22V18.7579C10 18.1596 10.1839 17.6396 10.4804 17.1699C10.6838 16.8476 10.5445 16.3904 10.1771 16.2894C7.13394 15.4528 5 14.1077 5 9.64606C5 8.48611 5.38005 7.39556 6.04811 6.4464C6.21437 6.21018 6.29749 6.09208 6.31748 5.9851C6.33746 5.87813 6.30272 5.73852 6.23322 5.45932C5.95038 4.32292 5.96871 3.11619 6.39322 2.02823C6.39322 2.02823 7.27042 1.74242 9.26698 2.98969C9.72282 3.27447 9.95075 3.41686 10.1515 3.44871C10.3522 3.48056 10.6206 3.41384 11.1573 3.28041C11.8913 3.09795 12.6476 3 13.5 3C14.3524 3 15.1087 3.09795 15.8427 3.28041C16.3794 3.41384 16.6478 3.48056 16.8485 3.44871C17.0493 3.41686 17.2772 3.27447 17.733 2.98969C19.7296 1.74242 20.6068 2.02823 20.6068 2.02823C21.0313 3.11619 21.0496 4.32292 20.7668 5.45932C20.6973 5.73852 20.6625 5.87813 20.6825 5.9851C20.7025 6.09207 20.7856 6.21019 20.9519 6.4464C21.6199 7.39556 22 8.48611 22 9.64606C22 14.1077 19.8661 15.4528 16.8229 16.2894C16.4555 16.3904 16.3162 16.8476 16.5196 17.1699C16.8161 17.6396 17 18.1596 17 18.7579V22"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    GITHUB
+                  </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center relative group w-[50%]">
-                <img src={WordCloud} className="w-full rounded-2xl" alt="" />
-                <div className="absolute flex justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
+              <div className=" flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full  md:order-1 xl:order-2]">
+                <img
+                  src={WordCloud}
+                  className="w-full h-full object-cover rounded-2xl"
+                  alt=""
+                />
+                <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
                     href=""
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
+                  <a
+                    href=""
+                    className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
+                  >
+                    GITHUB
+                  </a>
                 </div>
-                <div className="img-word-cloud absolute flex bg-[#F5F7F8] w-full h-full"></div>
+                <div className="img-word-cloud absolute bottom-0 flex bg-[#F5F7F8] w-full h-full"></div>
               </div>
             </div>
           </div>
 
           {/* KELAH-KELUH */}
-          <div className="kelah-keluh flex flex-col  w-[95.4dvw] ">
+          <div className="kelah-keluh flex flex-col  xl:w-[95.4dvw] md:w-[94dvw] ">
             <div className="border-line-kelah-keluh border-t-2 border-black py-3">
               <div className="info-project-kelah-keluh flex justify-between text-md ">
                 <h1>04</h1>
@@ -697,29 +918,92 @@ export const Hero = () => {
               </div>
             </div>
 
-            <div className="wrapper-kelah-keluh flex justify-between gap-8 w-full mt-3">
-              <div className="flex items-center justify-center relative group w-[50%]">
-                <img src={KelahKeluh} className="w-full rounded-2xl" alt="" />
-                <div className="absolute flex justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
+            <div className="wrapper-kelah-keluh flex md:flex-col xl:flex-row xl:justify-between md:items-center xl:items-end  gap-8 w-full xl:mt-3 md:mt-0">
+              <div className="flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full">
+                <img
+                  src={KelahKeluh}
+                  className="w-full h-full object-cover rounded-2xl"
+                  alt=""
+                />
+                <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
                     href=""
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
+                  <a
+                    href=""
+                    className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
+                  >
+                    GITHUB
+                  </a>
                 </div>
-                <div className="img-kelah-keluh absolute flex bg-[#F5F7F8] w-full h-full"></div>
+                <div className="img-kelah-keluh absolute bottom-0 flex bg-[#F5F7F8] w-full h-full"></div>
               </div>
-              <div className="flex flex-col w-[40%] justify-start ">
-                <div className="overflow-hidden">
-                  <h1 className="title-kelah-keluh text-[6.5vw] leading-[100%]">
-                    KELAH
-                  </h1>
+              <div className="flex xl:flex-col xl:w-[40%] md:flex-row md:w-full md:gap-5 md:order-2 xl:order-1  md:justify-between md:items-center xl:items-stretch">
+                <div className="flex md:flex-row xl:flex-col gap-4 ">
+                  <div className="overflow-hidden">
+                    <h1 className="title-kelah-keluh md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%]">
+                      KELAH
+                    </h1>
+                  </div>
+                  <div className="overflow-hidden">
+                    <h1 className="title-kelah-keluh md:text-5xl lg:text-6xl xl:text-[6.5vw] leading-[100%] text-end">
+                      KELUH
+                    </h1>
+                  </div>
                 </div>
-                <div className="overflow-hidden">
-                  <h1 className="title-kelah-keluh text-[6.5vw] leading-[100%] text-end">
-                    KELUH
-                  </h1>
+
+                <div className="button-view-project-kelah-keluh flex xl:hidden gap-2">
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                    <svg
+                      className="group-hover:text-white transition-all duration-300"
+                      aria-hidden="true"
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="1.8"
+                        d="M18 14v4.8a1.2 1.2 0 0 1-1.2 1.2H5.2A1.2 1.2 0 0 1 4 18.8V7.2A1.2 1.2 0 0 1 5.2 6h4.6m4.4-2H20v5.8m-7.9 2L20 4.2"
+                      ></path>
+                    </svg>
+                    VIEW
+                  </div>
+                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 24 24"
+                      width="24"
+                      height="24"
+                      color="#000000"
+                      fill="none"
+                      className="group-hover:text-white transition-all duration-300"
+                    >
+                      <path
+                        d="M10 20.5675C6.57143 21.7248 3.71429 20.5675 2 17"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                      <path
+                        d="M10 22V18.7579C10 18.1596 10.1839 17.6396 10.4804 17.1699C10.6838 16.8476 10.5445 16.3904 10.1771 16.2894C7.13394 15.4528 5 14.1077 5 9.64606C5 8.48611 5.38005 7.39556 6.04811 6.4464C6.21437 6.21018 6.29749 6.09208 6.31748 5.9851C6.33746 5.87813 6.30272 5.73852 6.23322 5.45932C5.95038 4.32292 5.96871 3.11619 6.39322 2.02823C6.39322 2.02823 7.27042 1.74242 9.26698 2.98969C9.72282 3.27447 9.95075 3.41686 10.1515 3.44871C10.3522 3.48056 10.6206 3.41384 11.1573 3.28041C11.8913 3.09795 12.6476 3 13.5 3C14.3524 3 15.1087 3.09795 15.8427 3.28041C16.3794 3.41384 16.6478 3.48056 16.8485 3.44871C17.0493 3.41686 17.2772 3.27447 17.733 2.98969C19.7296 1.74242 20.6068 2.02823 20.6068 2.02823C21.0313 3.11619 21.0496 4.32292 20.7668 5.45932C20.6973 5.73852 20.6625 5.87813 20.6825 5.9851C20.7025 6.09207 20.7856 6.21019 20.9519 6.4464C21.6199 7.39556 22 8.48611 22 9.64606C22 14.1077 19.8661 15.4528 16.8229 16.2894C16.4555 16.3904 16.3162 16.8476 16.5196 17.1699C16.8161 17.6396 17 18.1596 17 18.7579V22"
+                        stroke="currentColor"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      />
+                    </svg>
+                    GITHUB
+                  </div>
                 </div>
               </div>
             </div>
