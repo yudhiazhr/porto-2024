@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useState } from "react";
 
 export const GetInTouch = () => {
@@ -14,6 +14,7 @@ export const GetInTouch = () => {
     };
   }, []);
 
+
   const formattedTime = time.toLocaleTimeString("en-US", {
     hour: "numeric",
     minute: "numeric",
@@ -21,21 +22,27 @@ export const GetInTouch = () => {
     hour12: true,
   });
 
+  const handleScrollToTop = (e) => {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
   return (
     <>
       {/* LETS TALK */}
       <section className="relative min-h-3 flex items-center gap-6 bg-black text-white p-3 xl:p-10 xl:pt-20 ">
         <div className="flex w-full xl:w-1/2">
           <h1 className="text-2xl xl:text-6xl">
-            FOR ANY COLLABORATIVE 
-            PROJECTS OR INQUIRIES, FEEL 
-            FREE TO REACH OUT
+            FOR ANY COLLABORATIVE PROJECTS OR INQUIRIES, FEEL FREE TO REACH OUT
             TO ME.
           </h1>
         </div>
       </section>
 
-      <section className="min-h-32 xl:h-dvh flex flex-col p-3 xl:p-10 bg-black text-white">
+      <section
+        id="contact"
+        className="min-h-32 xl:h-dvh flex flex-col p-3 xl:p-10 bg-black text-white"
+      >
         <div className="flex flex-col xl:flex-row w-full gap-6 xl:gap-12">
           <div className="flex flex-col text-white w-full order-2 lg:order-1  xl:w-[25%]">
             <h1 className="text-base xl:text-xl py-4 xl:py-6">Social Media:</h1>
@@ -123,17 +130,30 @@ export const GetInTouch = () => {
             </a>
           </div>
 
-
           <div className="flex flex-col text-white w-full order-1 lg:order-2">
             <h1 className="text-sm xl:text-xl py-3 xl:py-6">Menu:</h1>
             <div className="flex justify-between items-center border-y-[1px] border-white py-3 cursor-pointer">
-              <a href="" className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] ">Home</a>
+              <a
+                href=""
+                onClick={handleScrollToTop}
+                className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] hover:text-gray-400 transition-all duration-300"
+              >
+                Home
+              </a>
             </div>
             <div className="flex justify-between items-center border-b-[1px] border-white py-3 cursor-pointer">
-              <a href="" className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] ">About</a>
+              <a
+                href="#about"
+                className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] hover:text-gray-400 transition-all duration-300"
+              >
+                About
+              </a>
             </div>
             <div className="flex justify-between items-center border-b-[1px] border-white py-3 cursor-pointer">
-              <a href="" className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] ">
+              <a
+                href="#projects"
+                className="text-[18vw] xl:text-[220px] leading-[100%] mt-[-15px] xl:mt-[-30px] hover:text-gray-400 transition-all duration-300"
+              >
                 Projects
               </a>
             </div>
@@ -141,7 +161,9 @@ export const GetInTouch = () => {
         </div>
 
         <div className="flex justify-between mt-auto py-8 xl:py-0 ">
-          <h1 className="flex text-[12px] xl:text-lg">{formattedTime} - Jakarta, INA</h1>
+          <h1 className="flex text-[12px] xl:text-lg">
+            {formattedTime} - Jakarta, INA
+          </h1>
           <h1 className="text-[12px] xl:text-lg ">Made with ❤ by yudhiazhr</h1>
         </div>
       </section>

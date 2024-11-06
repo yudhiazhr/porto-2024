@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import HeroImg from "../../assets/yuds.jpeg";
 import { Navbar } from "../../components/navbar";
 import gsap from "gsap";
@@ -10,6 +10,7 @@ import WordCloud from "../../assets/word-cloud.png";
 import { HeroMobile } from "../../mobile/hero";
 import { AboutMobile } from "../../mobile/about";
 import { ProjectMobile } from "../../mobile/project";
+import { GetInTouch } from "../../components/getInTouch";
 
 export const Hero = () => {
   const [arrayLength, setArrayLength] = useState(15);
@@ -386,14 +387,12 @@ export const Hero = () => {
       window.removeEventListener("resize", updateArrayLength);
     };
   }, []);
-
   return (
     <>
       <Navbar />
       {/* HERO SECTION */}
       <HeroMobile />
       <section
-        id="home"
         className=" hidden
          md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
       >
@@ -449,7 +448,7 @@ export const Hero = () => {
 
       {/* ABOUT SECTION */}
       <AboutMobile />
-      <section className=" min-h-dvh hidden md:flex flex-col md:px-3 lg:px-10 overflow-hidden">
+      <section id="about" className=" min-h-dvh hidden md:flex flex-col md:px-3 lg:px-10 overflow-hidden">
         <div className="md:flex md:flex-col xl:grid xl:grid-cols-2">
           <div className="relative flex ">
             <img
@@ -525,7 +524,7 @@ export const Hero = () => {
               </p>
               <div className="flex justify-start w-full xl:w-[70%] 2xl:w-[50%]">
                 <button
-                  className="text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] group text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
+                  className=" text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
                   onClick={() => {
                     window.open("/path/to/cv.pdf", "_blank");
                   }}
@@ -536,7 +535,7 @@ export const Hero = () => {
                     viewBox="0 0 24 24"
                     strokeWidth="1.5"
                     stroke="currentColor"
-                    className="size-6 group-hover:text-white"
+                    className="size-6 "
                   >
                     <path
                       strokeLinecap="round"
@@ -563,7 +562,7 @@ export const Hero = () => {
         ))}
       </section>
 
-      <section className="min-h-dvh w-full md:p-5 lg:p-10 project-section hidden md:flex flex-col gap-8 overflow-hidden">
+      <section id="projects" className="min-h-dvh w-full md:p-5 lg:p-10 project-section hidden md:flex flex-col gap-8 overflow-hidden">
         <div className=" wrapper-selected-project inline-flex flex-row md:gap-3 lg:gap-8 md:pt-9 lg:pt-4 w-full overflow-hidden">
           <h1 className="text-selected-project md:text-5xl lg:text-7xl xl:text-[6.5vw] leading-[100%] font-semibold ">
             SELECTED
@@ -607,7 +606,11 @@ export const Hero = () => {
                 </div>
 
                 <div className="button-view-project-siapa flex xl:hidden gap-2">
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                  <a
+                    href="https://siapa-vote.vercel.app/"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       className="group-hover:text-white transition-all duration-300"
                       aria-hidden="true"
@@ -627,8 +630,12 @@ export const Hero = () => {
                       ></path>
                     </svg>
                     VIEW
-                  </div>
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                  </a>
+                  <a
+                    href="https://github.com/yudhiazhr/siapa-vote"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -654,7 +661,7 @@ export const Hero = () => {
                       />
                     </svg>
                     GITHUB
-                  </div>
+                  </a>
                 </div>
               </div>
               <div className=" flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full  md:order-1 xl:order-2">
@@ -665,13 +672,15 @@ export const Hero = () => {
                 />
                 <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
-                    href=""
+                    href="https://siapa-vote.vercel.app/"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
                   <a
-                    href=""
+                    href="https://github.com/yudhiazhr/siapa-vote"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     GITHUB
@@ -709,13 +718,15 @@ export const Hero = () => {
                 />
                 <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
-                    href=""
+                    href="https://operating-placement-system.vercel.app/"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
                   <a
-                    href=""
+                    href="https://github.com/yudhiazhr/operating-placement-system"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     GITHUB
@@ -738,7 +749,11 @@ export const Hero = () => {
                 </div>
 
                 <div className="button-view-project-ops flex xl:hidden gap-2">
-                  <div className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                  <a
+                    href="https://operating-placement-system.vercel.app/"
+                    target="_blank"
+                    className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       className="group-hover:text-white transition-all duration-300"
                       aria-hidden="true"
@@ -758,8 +773,12 @@ export const Hero = () => {
                       ></path>
                     </svg>
                     VIEW
-                  </div>
-                  <div className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                  </a>
+                  <a
+                    href="https://github.com/yudhiazhr/operating-placement-system"
+                    target="_blank"
+                    className="cursor-pointer border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -785,7 +804,7 @@ export const Hero = () => {
                       />
                     </svg>
                     GITHUB
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
@@ -825,7 +844,11 @@ export const Hero = () => {
                 </div>
 
                 <div className="button-view-project-word-cloud flex xl:hidden gap-2">
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                  <a
+                    href="https://word-clouds.vercel.app/"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       className="group-hover:text-white transition-all duration-300"
                       aria-hidden="true"
@@ -845,8 +868,12 @@ export const Hero = () => {
                       ></path>
                     </svg>
                     VIEW
-                  </div>
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                  </a>
+                  <a
+                    href="https://github.com/yudhiazhr/word-cloud-with-reactjs-vite"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -872,7 +899,7 @@ export const Hero = () => {
                       />
                     </svg>
                     GITHUB
-                  </div>
+                  </a>
                 </div>
               </div>
               <div className=" flex items-center justify-center relative group xl:w-[50%] lg:w-[70%] md:w-full  md:order-1 xl:order-2]">
@@ -883,13 +910,15 @@ export const Hero = () => {
                 />
                 <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
-                    href=""
+                    href="https://word-clouds.vercel.app/"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
                   <a
-                    href=""
+                    href="https://github.com/yudhiazhr/word-cloud-with-reactjs-vite"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     GITHUB
@@ -927,13 +956,15 @@ export const Hero = () => {
                 />
                 <div className="absolute md:hidden xl:flex gap-3 justify-center items-center group-hover:bg-black/20 w-full h-full invisible group-hover:visible group-hover:cursor-pointer transition-all duration-300 rounded-2xl">
                   <a
-                    href=""
+                    href="https://kelah-keluh.vercel.app/"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     VIEW
                   </a>
                   <a
-                    href=""
+                    href="https://github.com/yudhiazhr/web-kelah-keluh"
+                    target="_blank"
                     className="text-3xl group-hover:text-black group-hover:bg-white/80  group-hover:backdrop-blur-sm px-8 py-2 rounded-full backdrop-blur-0 text-transparent transition-all duration-300"
                   >
                     GITHUB
@@ -956,7 +987,11 @@ export const Hero = () => {
                 </div>
 
                 <div className="button-view-project-kelah-keluh flex xl:hidden gap-2">
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white">
+                  <a
+                    href="https://kelah-keluh.vercel.app/"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-blue-700 transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       className="group-hover:text-white transition-all duration-300"
                       aria-hidden="true"
@@ -976,8 +1011,12 @@ export const Hero = () => {
                       ></path>
                     </svg>
                     VIEW
-                  </div>
-                  <div className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white">
+                  </a>
+                  <a
+                    href="https://github.com/yudhiazhr/web-kelah-keluh"
+                    target="_blank"
+                    className=" border-[1px] group text-xl h-full border-black rounded-full flex justify-center items-center gap-2 px-6 py-2 hover:bg-black transition-all duration-300 hover:text-white"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -1003,13 +1042,40 @@ export const Hero = () => {
                       />
                     </svg>
                     GITHUB
-                  </div>
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* Contact */}
+      <GetInTouch />
     </>
   );
 };
+
+/* export const Hero = () => {
+  return (
+    <>
+      <Navbar />
+      <section
+        id="home"
+        className=" hidden
+         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
+      ></section>
+      <section
+        id="about"
+        className=" hidden
+         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
+      ></section>
+      <section
+        id="project"
+        className=" hidden
+         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
+      ></section>
+      <GetInTouch />
+    </>
+  );
+}; */

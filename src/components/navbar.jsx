@@ -41,6 +41,8 @@ export const Navbar = () => {
     hour12: true,
   });
 
+
+
   return (
     <>
       <header
@@ -74,7 +76,9 @@ export const Navbar = () => {
             />
           </svg>
 
+        <a href="#contact">
           <button className=" text-sm xl:text-lg font-semibold">CONTACT</button>
+        </a>
         </div>
       </header>
     </>

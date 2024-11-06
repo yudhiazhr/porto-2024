@@ -3,7 +3,8 @@ import HeroImg from "../../src/assets/yuds.jpeg";
 export const AboutMobile = () => {
   return (
     <>
-      <section className="about-section min-h-dvh md:hidden flex flex-col px-3   pt-20  overflow-hidden">
+      <section
+      className="about-section min-h-dvh md:hidden flex flex-col px-3 pt-20  overflow-hidden">
         <div className="flex flex-col gap-6">
           <div className="relative flex">
             <img
@@ -46,8 +47,27 @@ export const AboutMobile = () => {
               unique ways. Driven by experiments and thoughtful innovation, I
               aim to redefine what an attractive modern website can achieve.
             </p>
-            <div className="text-reveal-about-desc border-[1px] h-10  w-44 border-black rounded-full flex justify-center items-center px-6 py-2">
-              DOWNLOAD CV
+            <div
+              className="text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
+              onClick={() => {
+                window.open("/path/to/cv.pdf", "_blank");
+              }}
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-6 "
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M3 16.5v2.25A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75V16.5M16.5 12 12 16.5m0 0L7.5 12m4.5 4.5V3"
+                />
+              </svg>
+              Download CV
             </div>
           </div>
         </div>
