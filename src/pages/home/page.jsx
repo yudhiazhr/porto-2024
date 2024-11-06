@@ -523,10 +523,10 @@ export const Hero = () => {
                 aim to redefine what an attractive modern website can achieve.
               </p>
               <div className="flex justify-start w-full xl:w-[70%] 2xl:w-[50%]">
-                <button
+                <a
                   className=" text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
                   onClick={() => {
-                    window.open("/path/to/cv.pdf", "_blank");
+                    window.open("src/assets/cv/Curriculum Vitae - Muhammad Yudhi Azhari.pdf", "_blank");
                   }}
                 >
                   <svg
@@ -544,7 +544,7 @@ export const Hero = () => {
                     />
                   </svg>
                   Download CV
-                </button>
+                </a>
               </div>
             </div>
           </div>
