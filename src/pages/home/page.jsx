@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import HeroImg from "../../assets/yuds.jpeg";
 import { Navbar } from "../../components/navbar";
 import gsap from "gsap";
@@ -172,27 +172,39 @@ export const Hero = () => {
         1
       );
 
-      const scrollHorizontal = gsap.timeline({
-        scrollTrigger: {
-          trigger: ".project-section",
-          start: "top 2%",
-          scrub: 1,
-          pin: true,
-          pinSpacer: false,
-          anticipatePin: 1,
+      ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function() {
+          const scrollHorizontal = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".project-section",
+              start: "top 2%",
+              scrub: 1,
+              pin: true,
+              pinSpacer: false,
+              anticipatePin: 1,
+              
+            },
+          });
+    
+          scrollHorizontal.fromTo(
+            ".inner-container",
+            { translateX: 0 },
+            {
+              translateX: "-292vw",
+              duration: 1,
+              ease: "none",
+              stagger: 0.5,
+            }
+          );
         },
-      });
-
-      scrollHorizontal.fromTo(
-        ".inner-container",
-        { translateX: 0 },
-        {
-          translateX: "-292vw",
-          duration: 1,
-          ease: "none",
-          stagger: 0.5,
+    
+        // For screens below 768px (disable animation)
+        "(max-width: 767px)": function() {
         }
-      );
+      });
+      
+
+      
 
       const triggerProjectOne = gsap.timeline({
         scrollTrigger: {
@@ -220,7 +232,8 @@ export const Hero = () => {
           },
           0.4
         )
-        .from(".button-view-project-siapa", {
+        .from(
+          ".button-view-project-siapa", {
           opacity: 0,
           duration: 1,
         });
@@ -371,7 +384,11 @@ export const Hero = () => {
     });
 
     const updateArrayLength = () => {
-      if (window.innerWidth >= 768 && window.innerWidth < 1024) {
+      if (window.innerWidth >= 320 && window.innerWidth < 520) {
+        setArrayLength(7);
+      } else if (window.innerWidth >= 520 && window.innerWidth < 768) {
+        setArrayLength(9);
+      } else if (window.innerWidth >= 768 && window.innerWidth < 1024) {
         setArrayLength(7);
       } else if (window.innerWidth >= 1024 && window.innerWidth < 1280) {
         setArrayLength(9);
@@ -445,11 +462,13 @@ export const Hero = () => {
           </div>
         </div>
       </section>
-
       {/* ABOUT SECTION */}
-      <AboutMobile />
-      <section id="about" className=" min-h-dvh hidden md:flex flex-col md:px-3 lg:px-10 overflow-hidden">
-        <div className="md:flex md:flex-col xl:grid xl:grid-cols-2">
+      <section
+        id="about"
+        className=" min-h-dvh flex flex-col px-3 lg:px-10 pt-20 md:pt-0 overflow-hidden"
+      >
+        <AboutMobile />
+        <div className="hidden md:flex md:flex-col xl:grid xl:grid-cols-2">
           <div className="relative flex ">
             <img
               src={HeroImg}
@@ -523,7 +542,9 @@ export const Hero = () => {
                 aim to redefine what an attractive modern website can achieve.
               </p>
               <div className="flex justify-start w-full xl:w-[70%] 2xl:w-[50%]">
-                <a href="src/assets/cv/Curriculum Vitae - Muhammad Yudhi Azhari.pdf" download="CV - Muhammad Yudhi Azhari.pdf"
+                <a
+                  href="src/assets/cv/Curriculum Vitae - Muhammad Yudhi Azhari.pdf"
+                  download="CV - Muhammad Yudhi Azhari"
                   className=" text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
                 >
                   <svg
@@ -549,26 +570,30 @@ export const Hero = () => {
       </section>
 
       {/* PROJECT */}
-      <ProjectMobile />
-      <section className="title-project relative overflow-hidden min-h-[200dvh] hidden md:flex justify-center items-center gap-12 px-10 ">
+      <section className="title-project relative overflow-hidden md:min-h-[200dvh] min-h-[100dvh] flex justify-center items-center gap-6 md:gap-12 px-3 md:px-10 mt-12 md:mt-0 ">
         {Array.from({ length: arrayLength }).map((_, index) => (
           <div
             key={index}
-            className="bg-black w-20 h-[200dvh] looping-bar rounded-2xl"
+            className="bg-black w-10 md:w-20 h-[100dvh] md:h-[200dvh] looping-bar rounded-sm md:rounded-2xl"
           ></div>
         ))}
       </section>
 
-      <section id="projects" className="min-h-dvh w-full md:p-5 lg:p-10 project-section hidden md:flex flex-col gap-8 overflow-hidden">
-        <div className=" wrapper-selected-project inline-flex flex-row md:gap-3 lg:gap-8 md:pt-9 lg:pt-4 w-full overflow-hidden">
-          <h1 className="text-selected-project md:text-5xl lg:text-7xl xl:text-[6.5vw] leading-[100%] font-semibold ">
+      <section
+        id="projects"
+        className="min-h-dvh w-full p-3 md:p-5 lg:p-10 project-section flex flex-col my-24 md:my-0 gap-6 md:gap-8 overflow-hidden"
+      >
+        <div className="flex md:inline-flex  wrapper-selected-project flex-col md:flex-row md:gap-3 lg:gap-8 md:pt-9 lg:pt-4 w-full overflow-hidden">
+          <h1 className="text-selected-project text-3xl md:text-5xl lg:text-7xl xl:text-[6.5vw] leading-[90%] md:leading-[100%] font-semibold ">
             SELECTED
           </h1>
-          <h1 className="text-selected-project md:text-5xl lg:text-7xl xl:text-[6.5vw] leading-[100%] font-semibold ">
+          <h1 className="text-selected-project text-3xl md:text-5xl lg:text-7xl xl:text-[6.5vw] leading-[90%] md:leading-[100%] font-semibold ">
             PROJECT
           </h1>
         </div>
-        <div className="flex gap-8 w-[388.6vw] inner-container pb-24">
+
+        <ProjectMobile />
+        <div className="hidden md:flex gap-8 w-[388.6vw] inner-container pb-24">
           {/* SIAPA VOTE */}
           <div className="siapa-vote flex flex-col  xl:w-[95.4dvw] md:w-[94dvw] ">
             <div className=" border-line border-t-2 border-black py-3">
@@ -1046,33 +1071,8 @@ export const Hero = () => {
           </div>
         </div>
       </section>
-
       {/* Contact */}
       <GetInTouch />
     </>
   );
 };
-
-/* export const Hero = () => {
-  return (
-    <>
-      <Navbar />
-      <section
-        id="home"
-        className=" hidden
-         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
-      ></section>
-      <section
-        id="about"
-        className=" hidden
-         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
-      ></section>
-      <section
-        id="project"
-        className=" hidden
-         md:min-h-32 lg:min-h-dvh md:flex flex-col md:justify-center  md:px-0 md:py-32 lg:p-10 overflow-hidden"
-      ></section>
-      <GetInTouch />
-    </>
-  );
-}; */
