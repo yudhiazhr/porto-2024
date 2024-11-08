@@ -81,7 +81,7 @@ export const ProjectMobile = () => {
             <h1 className="mobile-title-project-1 text-xl font-semibold">SIAPA VOTE</h1>
           </div>
 
-          <div className="button-project-mobile-1 flex gap-2">
+          <div className="button-project-1 flex gap-2">
             <a
               href="https://siapa-vote.vercel.app/"
               target="_blank"
