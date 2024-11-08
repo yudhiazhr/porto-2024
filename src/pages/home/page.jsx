@@ -601,7 +601,7 @@ export const Hero = () => {
               </p>
               <div className="flex justify-start w-full xl:w-[70%] 2xl:w-[50%]">
                 <a
-                  href="public/Curriculum Vitae - Muhammad Yudhi Azhari.pdf"
+                  href="cv/Curriculum Vitae - Muhammad Yudhi Azhari.pdf"
                   download="CV - Muhammad Yudhi Azhari"
                   className=" text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
                 >
