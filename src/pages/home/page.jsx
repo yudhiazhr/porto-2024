@@ -381,64 +381,6 @@ export const Hero = () => {
           },
           1
         );
-
-        /* Mobile GSAP */
-        const timeLine = gsap.timeline({
-          scrollTrigger: {
-            trigger: ".wrapper-img",
-            start: "top 80%",
-            end: "top 80%",
-          },
-        });
-    
-        timeLine.to(
-          ".img-project-mobile-1",
-          {
-            height: 0,
-            y: 0,
-            duration: 2,
-          },
-          0
-        ),
-    
-        gsap.to(".img-project-mobile-2", 
-          {
-            scrollTrigger: {
-              trigger: ".button-project-1",
-              start: "top 80%",
-              end: "top 80%",
-            },
-            height: 0,
-            y: 0,
-            duration: 2,
-          }
-        )
-    
-        gsap.to(".img-project-mobile-3", 
-          {
-            scrollTrigger: {
-              trigger: ".button-project-2",
-              start: "top 80%",
-              end: "top 80%",
-            },
-            height: 0,
-            y: 0,
-            duration: 2,
-          }
-        )
-    
-        gsap.to(".img-project-mobile-4", 
-          {
-            scrollTrigger: {
-              trigger: ".button-project-3",
-              start: "top 80%",
-              end: "top 80%",
-            },
-            height: 0,
-            y: 0,
-            duration: 2,
-          }
-        )
     });
 
     const updateArrayLength = () => {
