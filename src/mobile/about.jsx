@@ -47,7 +47,7 @@ export const AboutMobile = () => {
           </p>
           <a
             className="text-reveal-about-desc hover:text-white hover:bg-blue-700 border-[1px] text-md font-semibold h-10 w-44 border-black rounded-full flex gap-3 justify-center items-center py-3 cursor-pointer"
-            href="src/assets/cv/Curriculum Vitae - Muhammad Yudhi Azhari.pdf"
+            href="public/Curriculum Vitae - Muhammad Yudhi Azhari.pdf"
             download="CV - Muhammad Yudhi Azhari"
           >
             <svg
