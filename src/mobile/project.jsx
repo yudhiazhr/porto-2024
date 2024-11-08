@@ -1,72 +1,11 @@
-import { useEffect } from "react";
+
 import KelahKeluh from "../../src/assets/kelah-keluh.png";
 import OPS from "../../src/assets/operating-placement-system.png";
 import SiapaVote from "../../src/assets/siapa-vote.png";
 import WordCloud from "../../src/assets/word-cloud.png";
-import { ScrollTrigger } from "gsap/all";
-import gsap from "gsap";
 
 export const ProjectMobile = () => {
-  useEffect(() => {
-    gsap.registerPlugin(ScrollTrigger);
 
-    const timeLine = gsap.timeline({
-      scrollTrigger: {
-        trigger: ".wrapper-img",
-        start: "top 80%",
-        end: "top 80%",
-      },
-    });
-
-    timeLine.to(
-      ".img-project-mobile-1",
-      {
-        height: 0,
-        y: 0,
-        duration: 2,
-      },
-      0
-    ),
-
-    gsap.to(".img-project-mobile-2", 
-      {
-        scrollTrigger: {
-          trigger: ".button-project-1",
-          start: "top 80%",
-          end: "top 80%",
-        },
-        height: 0,
-        y: 0,
-        duration: 2,
-      }
-    )
-
-    gsap.to(".img-project-mobile-3", 
-      {
-        scrollTrigger: {
-          trigger: ".button-project-2",
-          start: "top 80%",
-          end: "top 80%",
-        },
-        height: 0,
-        y: 0,
-        duration: 2,
-      }
-    )
-
-    gsap.to(".img-project-mobile-4", 
-      {
-        scrollTrigger: {
-          trigger: ".button-project-3",
-          start: "top 80%",
-          end: "top 80%",
-        },
-        height: 0,
-        y: 0,
-        duration: 2,
-      }
-    )
-  });
 
   return (
     <>
